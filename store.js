@@ -16,10 +16,6 @@ const createTask = async (title) => (
     })
   })
 )
-module.exports = {
-  init,
-  createTask
-}
 const init = async () => (
   new Promise((resolve, reject) => {
     service.createTableIfNotExists(table, (error, result, response) => {
@@ -29,5 +25,6 @@ const init = async () => (
 )
 
 module.exports = {
-  init
+  init,
+createTask
 }
