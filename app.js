@@ -5,6 +5,7 @@ const json = require('koa-json')
 const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
+const tasks = require('./routes/tasks')
 
 const index = require('./routes/index')
 const users = require('./routes/users')
@@ -44,3 +45,4 @@ app.on('error', (err, ctx) => {
 require('./store').init();
 
 module.exports = app
+app.use(tasks.routes(), tasks.allowedMethods())
